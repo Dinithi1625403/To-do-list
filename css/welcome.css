@@ -18,3 +18,9 @@
         transform: translate(-50%, -150%);
     }
 }
+#signUpFormModal {
+    background-color: rgb(162, 112, 242,0.1);
+}
+#loginFormModal {
+    background-color: rgb(159, 113, 237);
+}
