@@ -85,7 +85,10 @@
 p{
     text-align: center;
 }
-
+.btn-light{
+    background-image: linear-gradient(to bottom,#8C52FF, #3a067e);
+    color: white;
+}
 
 
 

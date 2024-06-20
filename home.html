@@ -31,19 +31,21 @@
     <img src="images/home.png" style="object-fit: cover; width: 100%; height: 100%; position: fixed; z-index: -1;">
     
     <div class="d-flex justify-content-center align-items-start">
-        <button type="button" class="btn btn-primary" onclick="showTaskForm()" style="background-color: blueviolet;">Add New Task</button>
+        <button type="button" class="btn btn-light" style="color: white;"   onclick="showTaskForm()" style="background-color: blueviolet;">Add New Task</button>
     </div>
 
     <div class="modal" id="taskFormModal" style="display: none;">
         <div class="modal-dialog">
-            <div class="modal-content">
+            <div class="modal-content" style="background-image: linear-gradient(to bottom,#c1a4f3, #6e0ded);border: 5px solid white;color: white;">
                 <div class="modal-header">
                     <h5 class="modal-title">Add Task</h5>
-                    <button type="button" class="close" onclick="hideTaskForm()"  data-dismiss="modal" aria-label="Close">
+                    <button type="button" class="close" onclick="hideTaskForm()" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
+                    <!-- Your form content goes here -->
+     
                     <form>
                         <div class="form-group">
                             <label for="task-name">Task Name</label>
@@ -56,12 +58,13 @@
                         <div class="form-group">
                             <label for="remain-date">Remain Date</label>
                             <input type="date" class="form-control" id="remain-date">
+                            
                         </div>
                     </form>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" onclick="hideTaskForm()" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary" onclick="addTask()">Add Task</button>
+                    <button type="button" class="btn btn-light" style="background-image: linear-gradient(to bottom, white,rgb(218, 168, 248));"   onclick="addTask()">Add Task</button>
                 </div>
             </div>
         </div>

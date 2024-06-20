@@ -49,7 +49,7 @@
     <div class="welcome">
         <p>Welcome to TODOLIST</p>
         <h1>Get Things Done With Ease</h1>
-        <button class="btn btn-primary" style="background-color: rgb(166, 0, 255);" id="btn" onclick="showSignUpForm()">Get Started</button>
+        <button class="btn btn-light" style="background-color: #8C52FF;color: #ffffff;" id="btn" onclick="showSignUpForm()">Get Started</button>
     </div>
 
     <!--Sign up Modal-->
@@ -92,12 +92,15 @@
                                         <div class="hide-md-lg">
                                             <p>Or sign up manually:</p>
                                         </div>
-                                        <input type="text" name="username" class="form-control" placeholder="Username" required   >
-                                        <input type="email" name="email" class="form-control" placeholder="Email" required >
-                                        <input type="password" name="password" class="form-control" placeholder="Password" required>
-                                        <input type="password" name="password" class="form-control" placeholder="Confirm Password" required>
-                                        <input type="checkbox" checked="checked">Agree to <a href="#" style="color:rgb(84, 7, 252)">Terms & Conditions</a>
-                                        <input type="submit" value="Sign Up" class="btn btn-primary btn-block" style="margin-bottom:10px;" onclick="signUp()"  >
+                                        <input type="text" id="name" name="name" class="form-control" placeholder="Username" required>
+                                        <input type="email" id="email" name="email" class="form-control" placeholder="Email" required>
+                                        <input type="password" id="password" name="password" class="form-control" placeholder="Password" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$" title="Password must contain at least 8 characters, including at least one uppercase letter, one lowercase letter, one number, and one special character." required>
+                                        <input type="password" id="confirmPassword" name="confirmPassword" class="form-control" placeholder="Confirm Password" required oninput="checkPasswordMatch()">
+                                        <p id="passwordMatchError" style="color: red; display: none;">Passwords do not match</p>
+                                        <input type="checkbox" id="terms&Condition" checked="checked" required>Agree to <a href="#" style="color:rgb(84, 7, 252)">Terms & Conditions</a>
+                                        <button type="submit" class="btn btn-success btn-block" onclick="signUp()">Sign Up</button>
+                                        
+                                        
                                     </div>
                                 </div>
                             </form>
@@ -120,6 +123,28 @@
             </div>
         </div>
     </div>
+    <!--sign up success alert modal-->
+<div class="modal" id="signUpSuccessModal" style="display:none;">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                
+                <button type="button" class="close" onclick="hideSuccessModal()" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                
+            </div>
+            <div class="modal-body">
+                <div class="video-container">
+                    <video src="video/success.mp4" autoplay muted     style="width: 100%; height: auto; border: 10px solid rgb(255, 255, 255); background-color: rgb(255, 255, 255);border-radius: 20%;" ></video>
+                </div>
+                
+                <h1 class="text-center" style="text-align: center;">Sign Up Successful</h1>
+                <button class="btn btn-light d-block mx-auto mt-3" style="background-color:#8C52FF;color: #ffffff;" onclick="hideSuccessModal()">OK</button>
+            </div>
+        </div>
+    </div>
+</div>
     <!--Login Modal-->
 <div class="modal" id="loginFormModal" style="display: none;">
     <img src="images/form.png" style="object-fit: cover; width: 100%; height: 100%; position: fixed; z-index: -1; ">
@@ -161,7 +186,7 @@
                                     </div>
                                     <input type="email" name="email" class="form-control" placeholder="Email" required >
                                     <input type="password" name="password" class="form-control" placeholder="Password" required>
-                                    <input type="submit" value="Log In" class="btn btn-success btn-block">
+                                    <button type="submit" class="btn btn-success btn-block" onclick="login()">Log In</button>
                                     
                                     
                                 </div>
@@ -184,25 +209,6 @@
         </div>
     </div>
 </div>
- <!--sign up success alert modal-->
-    <div class="modal" id="signUpSuccessModal" style="display: none;">
-        <div class="modal-dialog" style="max-width: 80%; width: 80%; margin: 10% auto;">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Sign Up Success</h5>
-                    <p>Login In now</p>
-                    <button type="button" class="close" onclick="hideSignUpSuccess()" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <p>Sign Up Successful</p>
-                    <button class="btn btn-primary" onclick="hideSignUpSuccess()">OK</button>
-                </div>
-            </div>
-        </div>
 
-
-                
 </body>
 </html>
