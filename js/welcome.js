@@ -1,6 +1,6 @@
 function showSignUpForm() {
     document.getElementById("signUpFormModal").style.display = "block";
-    
+    document.getElementById("loginFormModal").style.display = "none";
 }
 
 function hideSignUpForm() {
@@ -57,7 +57,11 @@ function signUp() {
 
     else {
         alert("Sign up successful!");
-        window.location.href = "home.html";
+        
+        document.getElementById("signUpFormModal").style.display = "none";
+        document.getElementById("loginFormModal").style.display = "none";
+
+        document.getElementById("signUpSuccessModal").style.display = "block";
     }
     
 }

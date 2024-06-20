@@ -19,8 +19,73 @@
     }
 }
 #signUpFormModal {
-    background-color: rgb(162, 112, 242,0.1);
+    background-image: url(images/form.png);
 }
 #loginFormModal {
-    background-color: rgb(159, 113, 237);
+    background-image: url(images/form.png);
+    
 }
+.form-control {
+    background-color: rgb(162, 112, 242,0.1);
+    margin: 10px;
+}
+/*display vertical line if page size is more than 768px*/
+@media (min-width: 768px) {
+    .vl{
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    border-left: 1px  solid #c5c1c7;
+    height: 60%;
+    }
+    .hl{
+        display: none;
+    }
+    .vl-innertext{
+        position: absolute;
+        top: 50%;
+        transform: translate(-50%);
+        background-color: #f1f1f1;
+        border: 1px solid #ccc;
+        border-radius: 50%;
+        padding: 8px 10px;
+        margin: 5px;
+
+    }
+}
+/*display horizontal line if page size is less than 768px*/
+@media (max-width: 768px) {
+    .hl{
+        position: absolute;
+        left: 50%;
+        top: 35%;
+        transform: translate(-50%);
+        border-top: 1px solid #c5c1c7;
+        width: 80%;
+    }
+    .vl{
+        display: none;
+    }
+    .hl-innertext{
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%,-50%);
+        background-color: #f1f1f1;
+        border: 1px solid #ccc;
+        border-radius: 50%;
+        padding: 8px 10px;
+        
+    }
+    .hide-md-lg{
+        margin-top: 60px;
+        text-align: center;
+    }
+}
+p{
+    text-align: center;
+}
+
+
+
+
