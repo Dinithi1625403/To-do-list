@@ -110,6 +110,28 @@ function addTask() {
         // Append the new task to the task list
         taskList.appendChild(newTask);
 
+
+       // get radio button value and put the task name in the corresponding div
+        const radioValue = document.querySelector('input[name="category"]:checked').value;
+        const impUrg = document.getElementById('imp&urg');
+        const notImpUrg = document.getElementById('notimp&urg');
+        const impNotUrg = document.getElementById('imp&noturg');
+        const notImpNotUrg = document.getElementById('notimp&noturg');
+        if (radioValue === 'impUrg') {
+                impUrg.innerHTML += `<p>${taskName}</p>`;
+        } 
+        if (radioValue === 'notImpUrg') {
+                notImpUrg.innerHTML += `<p>${taskName}</p>`;
+        }
+        if (radioValue === 'impNotUrg') {
+                impNotUrg.innerHTML += `<p>${taskName}</p>`;
+        } 
+        if (radioValue === 'notImpNotUrg') {
+                notImpNotUrg.innerHTML += `<p>${taskName}</p>`;
+        }
+
+
+
         // Clear the input fields
         document.getElementById('task-name').value = '';
         document.getElementById('task-description').value = '';
@@ -117,10 +139,13 @@ function addTask() {
 
         // Hide the task form modal
         hideTaskForm();
+
+
+       
+
+
 }
 
 function hideEditForm() {
         document.getElementById('editForm').style.display = "none";
 }
-
-
