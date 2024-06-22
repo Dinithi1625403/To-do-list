@@ -1,7 +1,9 @@
+
 function showTaskForm() {
         document.getElementById("taskFormModal").style.display = "block";
-        document.getElementById("overlay").style.display = "block";
+       
 }
+
 
 function hideTaskForm() {
         document.getElementById("taskFormModal").style.display = "none";
@@ -65,7 +67,7 @@ function addTask() {
                 taskList.removeChild(newTask);
         };
 
-        // Create an edit button element
+        
         // Create an edit button element
         const editButton = document.createElement('button');
         editButton.innerHTML = '<i class="fa fa-edit"></i>';
@@ -111,24 +113,7 @@ function addTask() {
         taskList.appendChild(newTask);
 
 
-       // get radio button value and put the task name in the corresponding div
-        const radioValue = document.querySelector('input[name="category"]:checked').value;
-        const impUrg = document.getElementById('imp&urg');
-        const notImpUrg = document.getElementById('notimp&urg');
-        const impNotUrg = document.getElementById('imp&noturg');
-        const notImpNotUrg = document.getElementById('notimp&noturg');
-        if (radioValue === 'impUrg') {
-                impUrg.innerHTML += `<p>${taskName}</p>`;
-        } 
-        if (radioValue === 'notImpUrg') {
-                notImpUrg.innerHTML += `<p>${taskName}</p>`;
-        }
-        if (radioValue === 'impNotUrg') {
-                impNotUrg.innerHTML += `<p>${taskName}</p>`;
-        } 
-        if (radioValue === 'notImpNotUrg') {
-                notImpNotUrg.innerHTML += `<p>${taskName}</p>`;
-        }
+      
 
 
 

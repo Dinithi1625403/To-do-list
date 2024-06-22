@@ -1,6 +1,6 @@
 // Function to show the sign-up form
 function showSignUpForm() {
-    showSuccessModal();
+    
     document.getElementById("signUpFormModal").style.display = "block";
     document.getElementById("loginFormModal").style.display = "none";
 }

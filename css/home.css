@@ -18,16 +18,20 @@ li{
     
    
 }
-.btn-light{
+.btn-violet{
     background-image: linear-gradient(to bottom,#8C52FF, #3a067e);
     opacity: 0.9;
     color: white;
 }
-.btn-light:hover{
+.btn-violet:hover{
     background-image: linear-gradient(to bottom,#8C52FF, #3a067e);
     opacity: 1;
     color: white;
 }
+.btn-violet:focus{
+    border: 1px solid #e4daf1;
+}
+
 .btn-secondary{
     background-image: linear-gradient(to bottom,#89878f, #3a067e);
     opacity: 0.9;
