@@ -1,9 +1,12 @@
+document.getElementById('year').innerHTML = new Date().getFullYear();
+document.getElementById('month').innerHTML = new Date().toLocaleString('default', { month: 'long' });
+document.getElementById('day').innerHTML = new Date().getDate();
+
+
 
 function showTaskForm() {
         document.getElementById("taskFormModal").style.display = "block";
-       
 }
-
 
 function hideTaskForm() {
         document.getElementById("taskFormModal").style.display = "none";
@@ -13,7 +16,8 @@ function hideTaskForm() {
 // Get the reference to the task list element
 const taskList = document.getElementById('taskList');
 
-// Function to add a new task
+const remainDate = document.getElementById('remain-date').value;
+// Remove the duplicate declaration of newTask
 function addTask() {
         // Get the task name, description, and remain date from the input fields
         const taskName = document.getElementById('task-name').value;
@@ -22,9 +26,10 @@ function addTask() {
 
         // Create a new list item element
         const newTask = document.createElement('li');
+        newTask.id='newTask';
         newTask.style.listStyleType = 'none';
         newTask.style.backgroundColor = 'rgba(255, 255, 255, 0.6)';
-        newTask.style.border= '5px solid blueViolet';
+        newTask.style.border = '5px solid blueViolet';
 
         // Create a checkbox element
         const checkbox = document.createElement('input');
@@ -63,18 +68,17 @@ function addTask() {
         const removeButton = document.createElement('button');
         removeButton.innerHTML = '<i class="fa fa-close"></i>';
         removeButton.className = 'btn btn-danger';
-        removeButton.onclick = function () {
+        removeButton.onclick = function() {
                 taskList.removeChild(newTask);
         };
 
-        
         // Create an edit button element
         const editButton = document.createElement('button');
         editButton.innerHTML = '<i class="fa fa-edit"></i>';
         editButton.className = 'btn btn-primary';
         editButton.onclick = function() {
                 document.getElementById('editForm').style.display = "block";
-                
+
                 document.getElementById('edit').onclick = function() {
                         // Get the updated task name, description, and remain date from the input fields
                         const updatedTaskName = document.getElementById('edit-task-name').value;
@@ -93,7 +97,6 @@ function addTask() {
                 }
         };
 
-
         // Create a div element for task details
         const taskDetailsDiv = document.createElement('div');
         taskDetailsDiv.className = 'task-details';
@@ -108,14 +111,13 @@ function addTask() {
         newTask.appendChild(taskDetailsDiv);
         newTask.appendChild(removeButton);
         newTask.appendChild(editButton);
-
-        // Append the new task to the task list
         taskList.appendChild(newTask);
 
-
-      
-
-
+       if (new Date(remainDate).toDateString() === new Date().toDateString()) {
+                todayTasks.appendChild(newTask);
+        } else {
+                taskList.appendChild(newTask);
+        }
 
         // Clear the input fields
         document.getElementById('task-name').value = '';
@@ -124,13 +126,11 @@ function addTask() {
 
         // Hide the task form modal
         hideTaskForm();
+}
 
-
+// display newTask in todayTasks div if remainDate=Today automatically
+if (new Date(remainDate).toDateString() === new Date().toDateString()) {
        
 
-
 }
 
-function hideEditForm() {
-        document.getElementById('editForm').style.display = "none";
-}

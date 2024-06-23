@@ -37,9 +37,33 @@
       
    
         <img src="images/home.png" style="object-fit: cover; width: 100%; height: 100%; position: fixed; z-index: -1;">
-        <div class="d-flex justify-content-center align-items-start">
-            <button type="button" class="btn btn-violet" style=" background-color: blueviolet;" onclick="showTaskForm()">Add New Task</button>
+        <div class="mt-4" style="width: 100%; text-align: center; padding: 10px; margin: 10px;">
+            <div style="display: flex; flex-direction: column; align-items: center; float:right;margin: 100px;margin-top: 10px;">
+                <img src="images/calendar.png" style="width: 200px; height: 200px; object-fit: cover;  margin: 10px; z-index: -1; position: fixed;position: absolute;">
+                <div style="width: 100px;margin-top: 50px;">
+                    <h1 style="font-size: 60px;"><span id="day"></span></h1>
+                </div>
+                <div >
+                    <h2 style="color: aliceblue; "><span id="month"></span></h2>
+                    <h6 style="color: aliceblue;"><span id="year"></span></h6>
+                </div>
+            </div>
         </div>
+        <br>
+      
+        <div class="d-flex justify-content-center align-items-start">
+            <div style="background-color: rgb(255, 255, 255,0.6); border-radius: 10px;">
+                <div class="card-body">
+                   
+            <h1>"Hello! Let's Get Things Done Together"</h1>
+            <p>Add a New Task</p>
+            <br>
+            <button type="button" class="btn btn-violet" style="background-color: blueviolet;" onclick="showTaskForm()">Add New Task</button>
+        </div>
+
+
+
+        <br>
         <div class="modal" id="taskFormModal" style="display: none;">
             <div class="modal-dialog">
                 <div class="modal-content" style="background-image: linear-gradient(to bottom,#c1a4f3, #6e0ded);border: 5px solid white;color: white;">
@@ -64,14 +88,7 @@
                                 <label for="remain-date">Remain Date</label>
                                 <input type="date" class="form-control" id="remain-date">
                             </div>
-                            <input type="radio" id="impUrg" name="category" value="impUrg"   >
-                            <label for="impUrg">Important &amp; Urgent</label><br>
-                            <input type="radio" id="notImpUrg" name="category" value="notImpUrg">
-                            <label for="notImpUrg">Not Important &amp; Urgent</label><br>
-                            <input type="radio" id="impNotUrg" name="category" value="impNotUrg">
-                            <label for="impNotUrg">Important &amp; Not Urgent</label><br>
-                            <input type="radio" id="notImpNotUrg" name="category" value="notImpNotUrg">
-                            <label for="notImpNotUrg">Not Important &amp; Not Urgent</label><br>
+                            
                         </form>
                     </div>
                     <div class="modal-footer">
