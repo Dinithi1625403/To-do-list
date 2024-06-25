@@ -12,9 +12,14 @@ function hideTaskForm() {
         document.getElementById("taskFormModal").style.display = "none";
         document.getElementById("overlay").style.display = "none";
 }
+function hideEditForm() {
+        document.getElementById("editForm").style.display = "none";
+        document.getElementById("overlay").style.display = "none";
+}
 
 // Get the reference to the task list element
 const taskList = document.getElementById('taskList');
+taskList.style.boxShadow='box-shadow: rgb(200, 208, 231) 3.2px 3.2px 8px 0px inset, rgb(255, 255, 255) -3.2px -3.2px 8px 0px inset;'
 
 const remainDate = document.getElementById('remain-date').value;
 // Remove the duplicate declaration of newTask
@@ -28,8 +33,11 @@ function addTask() {
         const newTask = document.createElement('li');
         newTask.id='newTask';
         newTask.style.listStyleType = 'none';
-        newTask.style.backgroundColor = 'rgba(255, 255, 255, 0.6)';
-        newTask.style.border = '5px solid blueViolet';
+       
+        newTask.style.boxShadow='box-shadow: rgb(200, 208, 231) 3.2px 3.2px 8px 0px inset, rgb(255, 255, 255) -3.2px -3.2px 8px 0px inset;';
+        newTask.style.borderRadius='10px';
+        
+        newTask.style.padding='10px';
 
         // Create a checkbox element
         const checkbox = document.createElement('input');
@@ -43,6 +51,9 @@ function addTask() {
         checkbox.style.marginLeft = '10px';
         checkbox.id = 'taskCheckbox';
         checkbox.className = 'form-check-input';
+        checkbox.style.accentColor='#6f00ff';
+        
+        
         checkbox.onclick = function() {
                 if (checkbox.checked) {
                         newTask.style.textDecoration = 'line-through';
@@ -70,6 +81,7 @@ function addTask() {
         removeButton.className = 'btn btn-danger';
         removeButton.onclick = function() {
                 taskList.removeChild(newTask);
+                document.getElementById('tasksContainer').style.display = 'none';
         };
 
         // Create an edit button element
@@ -113,11 +125,7 @@ function addTask() {
         newTask.appendChild(editButton);
         taskList.appendChild(newTask);
 
-       if (new Date(remainDate).toDateString() === new Date().toDateString()) {
-                todayTasks.appendChild(newTask);
-        } else {
-                taskList.appendChild(newTask);
-        }
+        document.getElementById('tasksContainer').style.display = 'block';
 
         // Clear the input fields
         document.getElementById('task-name').value = '';

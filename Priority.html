@@ -38,7 +38,7 @@
     <button type="button" class="btn btn-violet" style=" background-color: blueviolet;" onclick="showTaskFormPr()">Add New Task</button>
         <div class="modal" id="taskFormModalPr" style="display: none;">
             <div class="modal-dialog">
-                <div class="modal-content" style="background-image: linear-gradient(to bottom,#c1a4f3, #6e0ded);border: 5px solid white;color: white;">
+                <div class="modal-content" >
                     <div class="modal-header">
                         <h5 class="modal-title">Add Task</h5>
                         <button type="button" class="close" onclick="hideTaskFormPr()" data-dismiss="modal" aria-label="Close">
@@ -48,17 +48,18 @@
                     <div class="modal-body">
                         <!-- Your form content goes here -->
                         <form>
-                            <div class="form-group">
+                            <div class="form-group" >
                                 <label for="task-name">Task Name</label>
-                                <input type="text" class="form-control" id="task-name" placeholder="Enter task name">
+                                <input type="text" class="form-control" id="task-name" placeholder="Enter task name"                 style="background-color: white; box-shadow: rgb(200, 208, 231) 3.2px 3.2px 8px 0px inset,rgb(255, 255, 255) -3.2px -3.2px 8px 0px inset; ">
+                               
                             </div>
                             <div class="form-group">
-                                <label for="task-description">Task Description</label>
-                                <textarea class="form-control" id="task-description" rows="3" placeholder="Enter task description"></textarea>
+                                <label for="task-description">Task Description</label>                                                                                       
+                                <textarea class="form-control" id="task-description" rows="3" placeholder="Enter task description"   style="background-color: white; box-shadow:  rgb(200, 208, 231) 3.2px 3.2px 8px 0px inset, rgb(255, 255, 255) -3.2px -3.2px 8px 0px inset;"></textarea>
                             </div>
                             <div class="form-group">
                                 <label for="remain-date">Remain Date</label>
-                                <input type="date" class="form-control" id="remain-date">
+                                <input type="date" class="form-control" id="remain-date"   style="background-color: white;box-shadow: rgb(200, 208, 231) 3.2px 3.2px 8px 0px inset, rgb(255, 255, 255) -3.2px -3.2px 8px 0px inset;">
                             </div>
                             <input type="radio" id="impUrg" name="category" value="impUrg"   >
                             <label for="impUrg">Important &amp; Urgent</label><br>
@@ -72,7 +73,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" onclick="hideTaskFormPr()" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-light" style="background-image: linear-gradient(to bottom, white,rgb(218, 168, 248));" onclick="prioratise()">Add Task</button>
+                        <button type="button" class="btn btn-violet"  onclick="prioratise()">Add Task</button>
                     </div>
                 </div>
             </div>
@@ -104,7 +105,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" onclick="hideEditForm()" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary" id="edit">Done</button>
+                        <button type="button" class="btn btn-violet" id="edit">Done</button>
                     </div>
                 </div>
             </div>
@@ -115,35 +116,35 @@
             </div>
         </div>
         <div class="tasks">
-            <div class="row">
-                <div class="col-lg-3 col-md-6 col-sm-12" >
-                    <div id="impUrg" class="card" style="border:deeppink 5px solid; ">
-                        <div class="card-body">
-                            <h2 class="card-title" style="color: deeppink;">Important &amp; Urgent</h2>
+            <div class="row" style="margin: 4px;">
+                <div class=" priorityTabs    col-lg-3 col-md-6 col-sm-12" >
+                    <div id="impUrg"   ">
+                        <div class="card-body" style="background-color: deeppink;">
+                            <h2 class="card-title" style="color: white;">Important &amp; Urgent</h2>
                             <ul id="impUrgUl" class="list-group"></ul>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6 col-sm-12">
-                    <div id="notImpUrg" class="card" style="border:peru 5px solid; ">
-                        <div class="card-body">
-                            <h2 class="card-title"  style="color:peru;">Not Important &amp; Urgent</h2>
+                <div class=" priorityTabs    col-lg-3 col-md-6 col-sm-12">
+                    <div id="notImpUrg" >
+                        <div class="card-body"  style="background-color: orange;">
+                            <h2 class="card-title"  style="color:white;">Not Important &amp; Urgent</h2>
                             <ul id="notImpUrgUl" class="list-group"></ul>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6 col-sm-12">
-                    <div id="impNotUrg" class="card" style="border:darkturquoise 5px solid ">
-                        <div class="card-body">
-                            <h2 class="card-title" style="color: darkturquoise">Important &amp; Not Urgent</h2>
+                <div class=" priorityTabs   col-lg-3 col-md-6 col-sm-12">
+                    <div id="impNotUrg" >
+                        <div class="card-body" style="background-color: darkturquoise;">
+                            <h2 class="card-title" style="color: white;">Important &amp; Not Urgent</h2>
                             <ul id="impNotUrgUl" class="list-group"></ul>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6 col-sm-12">
-                    <div id="notImpNotUrg" class="card" style="border:dodgerblue 5px solid; ">
-                        <div class="card-body">
-                            <h2 class="card-title"  style="color: dodgerblue">Not Important &amp; Not Urgent</h2>
+                <div class=" priorityTabs    col-lg-3 col-md-6 col-sm-12">
+                    <div id="notImpNotUrg"  >
+                        <div class="card-body" style="background-color: dodgerblue;">
+                            <h2 class="card-title"  style="color: white">Not Important &amp; Not Urgent</h2>
                             <ul id="notImpNotUrgUl" class="list-group"></ul>
                         </div>
                     </div>

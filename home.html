@@ -5,149 +5,148 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>TODOLIST</title>
     <link rel="stylesheet" href="css/home.css">
+    <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!-- Font Awesome CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
     <header>
-        
         <nav id="nav" class="navbar navbar-expand-lg navbar-light bg-light">
             <a class="navbar-brand" href="#">TODOLIST</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+                <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ml-auto justify-content-end">
-                <li class="nav-item">
-                <button class=" btn  btn-violet" id="defaultOpen"   onclick="window.open('home.html')">Home</button>  
-                </li>
-                <li class="nav-item">
-                <button class=" btn btn-violet" onclick="window.open('priority.html')">Priority</button>
-                </li>
-                <li class="nav-item">
-                <a class="nav-link" href="register.html">Log Out</a>
-                </li>
-            </ul>
+                <ul class="navbar-nav ml-auto justify-content-end">
+                    <li class="nav-item">
+                        <button class="btn btn-violet" id="defaultOpen" onclick="window.open('home.html')">Home</button>
+                    </li>
+                    <li class="nav-item">
+                        <button class="btn btn-violet" onclick="window.open('priority.html')">Priority</button>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="register.html">Log Out</a>
+                    </li>
+                </ul>
             </div>
         </nav>
     </header>
-   
-        
+
+    <!-- Background Image -->
+    <img src="images/home.png" style="object-fit: cover; width: 100%; height: 100%; position: fixed; z-index: -1;">
   
-      
-   
-        <img src="images/home.png" style="object-fit: cover; width: 100%; height: 100%; position: fixed; z-index: -1;">
-        <div class="mt-4" style="width: 100%; text-align: center; padding: 10px; margin: 10px;">
-            <div style="display: flex; flex-direction: column; align-items: center; float:right;margin: 100px;margin-top: 10px;">
-                <img src="images/calendar.png" style="width: 200px; height: 200px; object-fit: cover;  margin: 10px; z-index: -1; position: fixed;position: absolute;">
-                <div style="width: 100px;margin-top: 50px;">
-                    <h1 style="font-size: 60px;"><span id="day"></span></h1>
-                </div>
-                <div >
-                    <h2 style="color: aliceblue; "><span id="month"></span></h2>
-                    <h6 style="color: aliceblue;"><span id="year"></span></h6>
-                </div>
+    <div class="mt-4   " style="width: 100%; text-align: center; padding: 10px; margin: 10px;">
+        <div style="display: flex; flex-direction: column; align-items: center; float:right;margin: 100px;margin-top: 10px;">
+            <!-- Calendar Image -->
+            <img src="images/calendar.png" style="width: 200px; height: 200px; object-fit: cover;  margin: 10px; z-index: -1; position: fixed;position: absolute;">
+            <div style="width: 100px;margin-top: 50px;">
+                <h1 style="font-size: 60px;"><span id="day"></span></h1>
             </div>
-        </div>
-        <br>
-      
-        <div class="d-flex justify-content-center align-items-start">
-            <div style="background-color: rgb(255, 255, 255,0.6); border-radius: 10px;">
-                <div class="card-body">
-                   
-            <h1>"Hello! Let's Get Things Done Together"</h1>
-            <p>Add a New Task</p>
-            <br>
-            <button type="button" class="btn btn-violet" style="background-color: blueviolet;" onclick="showTaskForm()">Add New Task</button>
-        </div>
-
-
-
-        <br>
-        <div class="modal" id="taskFormModal" style="display: none;">
-            <div class="modal-dialog">
-                <div class="modal-content" style="background-image: linear-gradient(to bottom,#c1a4f3, #6e0ded);border: 5px solid white;color: white;">
-                    <div class="modal-header">
-                        <h5 class="modal-title">Add Task</h5>
-                        <button type="button" class="close" onclick="hideTaskForm()" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <!-- Your form content goes here -->
-                        <form>
-                            <div class="form-group">
-                                <label for="task-name">Task Name</label>
-                                <input type="text" class="form-control" id="task-name" placeholder="Enter task name">
-                            </div>
-                            <div class="form-group">
-                                <label for="task-description">Task Description</label>
-                                <textarea class="form-control" id="task-description" rows="3" placeholder="Enter task description"></textarea>
-                            </div>
-                            <div class="form-group">
-                                <label for="remain-date">Remain Date</label>
-                                <input type="date" class="form-control" id="remain-date">
-                            </div>
-                            
-                        </form>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" onclick="hideTaskForm()" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-light" style="background-image: linear-gradient(to bottom, white,rgb(218, 168, 248));" onclick="addTask()">Add Task</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="modal" id="editForm" style="display: none;">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title">Edit Task</h5>
-                        <button type="button" class="close" onclick="hideEditForm()" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <form>
-                            <div class="form-group">
-                                <label for="task-name">Task Name</label>
-                                <input type="text" class="form-control" id="edit-task-name" placeholder="Enter task name">
-                            </div>
-                            <div class="form-group">
-                                <label for="task-description">Task Description</label>
-                                <textarea class="form-control" id="edit-task-description" rows="3" placeholder="Enter task description"></textarea>
-                            </div>
-                            <div class="form-group">
-                                <label for="remain-date">Remain Date</label>
-                                <input type="date" class="form-control" id="edit-remain-date">
-                            </div>
-                        </form>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" onclick="hideEditForm()" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary" id="edit">Done</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="container">
-            <div id="tasksContainer" class="mt-4">
-                <ul id="taskList" class="list-group"></ul>
+            <div>
+                <h2 style="color: aliceblue; "><span id="month"></span></h2>
+                <h6 style="color: aliceblue;"><span id="year"></span></h6>
             </div>
         </div>
     </div>
-    
+    <br>
+
+    <div class=" card  d-flex justify-content-center align-items-start"  style="background-color: rgb(255, 255, 255,0.6); border-radius: 10px; padding: 20px; margin: 10px;">
+        <div >
+            <div>
+                <h1>"Hello! Let's Get Things Done Together"</h1>
+                <p>Add a New Task</p>
+                <br>
+                <button type="button" class="btn btn-violet" style="background-color:white;" onclick="showTaskForm()">Add New Task</button>
+            </div>
+        </div>
+    </div>
 
 
- 
+  </div>
 
-        
-      
-        
+    <!-- Task Form Modal -->
+    <div class="modal" id="taskFormModal" style="display: none;">
+        <div class="modal-dialog">
+            <div class="modal-content" style="background-color: white;border: 5px solid white;color: rgb(0, 0, 0) ;box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;border: 6px solid white; ">
+                <div class="modal-header">
+                    <h5 class="modal-title">Add Task</h5>
+                    <button type="button" class="close" onclick="hideTaskForm()" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group" >
+                            <label for="task-name">Task Name</label>
+                            <input type="text" class="form-control" id="task-name" placeholder="Enter task name"                 style="background-color: white; box-shadow: rgb(200, 208, 231) 3.2px 3.2px 8px 0px inset,rgb(255, 255, 255) -3.2px -3.2px 8px 0px inset; ">
+                           
+                        </div>
+                        <div class="form-group">
+                            <label for="task-description">Task Description</label>                                                                                       
+                            <textarea class="form-control" id="task-description" rows="3" placeholder="Enter task description"   style="background-color: white; box-shadow:  rgb(200, 208, 231) 3.2px 3.2px 8px 0px inset, rgb(255, 255, 255) -3.2px -3.2px 8px 0px inset;"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="remain-date">Remain Date</label>
+                            <input type="date" class="form-control" id="remain-date"   style="background-color: white;box-shadow: rgb(200, 208, 231) 3.2px 3.2px 8px 0px inset, rgb(255, 255, 255) -3.2px -3.2px 8px 0px inset;">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary"         onclick="hideTaskForm()" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-violet"onclick="addTask()">Add Task</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
+    <!-- Edit Form Modal -->
+    <div class="modal" id="editForm" style="display: none;">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Edit Task</h5>
+                    <button type="button" class="close" onclick="hideEditForm()" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="task-name">Task Name</label>
+                            <input type="text" class="form-control" id="edit-task-name" placeholder="Enter task name" style="background-color: white; box-shadow:  rgb(200, 208, 231) 3.2px 3.2px 8px 0px inset, rgb(255, 255, 255) -3.2px -3.2px 8px 0px inset;">
+                        </div>
+                        <div class="form-group">
+                            <label for="task-description">Task Description</label>
+                            <textarea class="form-control" id="edit-task-description" rows="3" placeholder="Enter task description" style="background-color: white; box-shadow:  rgb(200, 208, 231) 3.2px 3.2px 8px 0px inset, rgb(255, 255, 255) -3.2px -3.2px 8px 0px inset;"> </textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="remain-date">Remain Date</label>
+                            <input type="date" class="form-control" id="edit-remain-date" style="background-color: white; box-shadow:  rgb(200, 208, 231) 3.2px 3.2px 8px 0px inset, rgb(255, 255, 255) -3.2px -3.2px 8px 0px inset;">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" onclick="hideEditForm()" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-violet" id="edit" onclick="edit()"   >Done</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div id="tasksContainer" class="col-md-6 " style="background-color: white; margin: 4px;padding: 10px;     display: none;" >
+            <ul id="taskList" class="list-group"></ul>
+        </div>
+    </div>
+
+    <!-- Custom JavaScript -->
     <script src="js/home.js"></script>
+    <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <!-- Popper.js -->
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <!-- Bootstrap JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
 </html>
