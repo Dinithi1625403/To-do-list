@@ -31,30 +31,23 @@ function addTask() {
 
         // Create a new list item element
         const newTask = document.createElement('li');
-        newTask.id='newTask';
+        newTask.id = 'newTask';
         newTask.style.listStyleType = 'none';
-       
-        newTask.style.boxShadow='box-shadow: rgb(200, 208, 231) 3.2px 3.2px 8px 0px inset, rgb(255, 255, 255) -3.2px -3.2px 8px 0px inset;';
-        newTask.style.borderRadius='10px';
-        
-        newTask.style.padding='10px';
+        newTask.style.boxShadow = 'inset rgb(200, 208, 231) 3.2px 3.2px 8px 0px, inset rgb(255, 255, 255) -3.2px -3.2px 8px 0px';
+        newTask.style.borderRadius = '10px';
 
         // Create a checkbox element
         const checkbox = document.createElement('input');
         checkbox.type = 'checkbox';
-        checkbox.style.width = '40px';
-        checkbox.style.height = '40px';
+        
         checkbox.style.position = 'absolute';
         checkbox.style.top = '50%';
         checkbox.style.transform = 'translateY(-50%)';
         checkbox.style.left = '0%';
-        checkbox.style.marginLeft = '10px';
         checkbox.id = 'taskCheckbox';
-        checkbox.className = 'form-check-input';
-        checkbox.style.accentColor='#6f00ff';
-        
-        
-        checkbox.onclick = function() {
+        checkbox.style.accentColor = '#6f00ff';
+
+        checkbox.onclick = function () {
                 if (checkbox.checked) {
                         newTask.style.textDecoration = 'line-through';
                 } else {
@@ -77,21 +70,25 @@ function addTask() {
 
         // Create a remove button element
         const removeButton = document.createElement('button');
-        removeButton.innerHTML = '<i class="fa fa-close"></i>';
-        removeButton.className = 'btn btn-danger';
-        removeButton.onclick = function() {
+        removeButton.innerHTML = '<i class="fa fa-close" style="font-size: 100%; padding:0%"></i>';
+        removeButton.className = 'btn ';
+        removeButton.style.backgroundColor = 'white';
+
+        removeButton.onclick = function () {
                 taskList.removeChild(newTask);
                 document.getElementById('tasksContainer').style.display = 'none';
         };
 
         // Create an edit button element
         const editButton = document.createElement('button');
-        editButton.innerHTML = '<i class="fa fa-edit"></i>';
-        editButton.className = 'btn btn-primary';
-        editButton.onclick = function() {
+        editButton.innerHTML = '<i class="fa fa-edit" style="color:#8C52FF;font-size: 100%;padding:0%"></i>';
+        editButton.className = 'btn ';
+        editButton.style.backgroundColor = 'white';
+
+        editButton.onclick = function () {
                 document.getElementById('editForm').style.display = "block";
 
-                document.getElementById('edit').onclick = function() {
+                document.getElementById('edit').onclick = function () {
                         // Get the updated task name, description, and remain date from the input fields
                         const updatedTaskName = document.getElementById('edit-task-name').value;
                         const updatedTaskDescription = document.getElementById('edit-task-description').value;
@@ -111,18 +108,32 @@ function addTask() {
 
         // Create a div element for task details
         const taskDetailsDiv = document.createElement('div');
+        taskDetailsDiv.style.fontFamily = 'Coming Soon';
+        if (window.innerWidth < 768) {
+                taskDetailsDiv.style.fontSize = '0.5rem';
+        } else {
+                taskDetailsDiv.style.fontSize = '1.5rem';
+                checkbox.style.width = '40px';
+        }
         taskDetailsDiv.className = 'task-details';
         taskDetailsDiv.innerHTML = `
-                <h3>${taskName}</h3>
-                <p>${taskDescription}</p>
-                <p>${remainDate}</p>
+                <h3 ">${taskName}</h3>
+                <p style="font-family: Coming Soon;">${taskDescription}</p>
+                <p style="font-family: Coming Soon;">${remainDate}</p>
         `;
+
+        const btnDiv = document.createElement('div');
+        btnDiv.appendChild(removeButton);
+        btnDiv.appendChild(editButton);
+        btnDiv.style.width = '20%';
+        btnDiv.style.margin = '1%';
+        taskDetailsDiv.style.width = '60%';
+        checkboxDiv.style.width = '10%';
 
         newTask.className = 'list-group-item d-flex justify-content-between align-items-center';
         newTask.appendChild(checkboxDiv);
         newTask.appendChild(taskDetailsDiv);
-        newTask.appendChild(removeButton);
-        newTask.appendChild(editButton);
+        newTask.appendChild(btnDiv);
         taskList.appendChild(newTask);
 
         document.getElementById('tasksContainer').style.display = 'block';
