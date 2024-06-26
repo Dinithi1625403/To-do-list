@@ -38,14 +38,15 @@ function addTask() {
 
         // Create a checkbox element
         const checkbox = document.createElement('input');
-        checkbox.type = 'checkbox';
-        
+        checkbox.type = 'checkbox';  
         checkbox.style.position = 'absolute';
         checkbox.style.top = '50%';
         checkbox.style.transform = 'translateY(-50%)';
         checkbox.style.left = '0%';
         checkbox.id = 'taskCheckbox';
         checkbox.style.accentColor = '#6f00ff';
+        checkbox.style.width = '20px';
+        checkbox.style.height = '20px';
 
         checkbox.onclick = function () {
                 if (checkbox.checked) {
@@ -117,19 +118,19 @@ function addTask() {
         }
         taskDetailsDiv.className = 'task-details';
         taskDetailsDiv.innerHTML = `
-                <h3 ">${taskName}</h3>
-                <p style="font-family: Coming Soon;">${taskDescription}</p>
-                <p style="font-family: Coming Soon;">${remainDate}</p>
+                <h3>${taskName}</h3>
+                <p style="font-family: Coming Soon;>${taskDescription}</p>
+                <p style="font-family: Coming Soon;>${remainDate}</p>
         `;
 
         const btnDiv = document.createElement('div');
         btnDiv.appendChild(removeButton);
         btnDiv.appendChild(editButton);
-        btnDiv.style.width = '20%';
-        btnDiv.style.margin = '1%';
+        btnDiv.style.float = 'right';
+        
         taskDetailsDiv.style.width = '60%';
-        checkboxDiv.style.width = '10%';
-
+        checkboxDiv.style.width = '5%';
+    
         newTask.className = 'list-group-item d-flex justify-content-between align-items-center';
         newTask.appendChild(checkboxDiv);
         newTask.appendChild(taskDetailsDiv);
