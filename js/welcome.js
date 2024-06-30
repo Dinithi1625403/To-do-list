@@ -162,4 +162,5 @@ function checkLoginState() {
     FB.getLoginStatus(function(response) {
       statusChangeCallback(response);
     });
+    window.open("home.html");
   }
