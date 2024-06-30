@@ -167,41 +167,11 @@ function checkLoginState() {
 
 
 
-// Function to handle the Twitter login process
-function twitterLogin() {
-    // Add your code here to handle the Twitter login process
-    // You can use the Twitter API or a third-party library to authenticate the user with Twitter
-    // Once the user is authenticated, you can redirect them to the desired page or perform any other actions
-    // For example:
-    window.location.href = "home.html";
-    // You can use the Twitter API or a third-party library to authenticate the user with Twitter
-    // Once the user is authenticated, you can redirect them to the desired page or perform any other actions
-    // For example:
-    window.location.href = "home.html";
-}
 
 
 
 
 
 
-$('#twitter-button').on('click', function() {
-	// Initialize with your OAuth.io app public key
-	OAuth.initialize('RiKCrv9C96iWLvn0AzlkAYZ5c');
-  // Use popup for OAuth
-  OAuth.popup('twitter').then(twitter => {
-    console.log('twitter:', twitter);
-    // Prompts 'welcome' message with User's email on successful login
-    // #me() is a convenient method to retrieve user data without requiring you
-    // to know which OAuth provider url to call
-    twitter.me().then(data => {
-      console.log('data:', data);
-      alert('Twitter says your email is:' + data.email + ".\nView browser 'Console Log' for more details");
-	  });
-    // Retrieves user data from OAuth provider by using #get() and
-    // OAuth provider url    
-    twitter.get('/1.1/account/verify_credentials.json?include_email=true').then(data => {
-      console.log('self data:', data);
-	  })    
-	});
-})
+
+
