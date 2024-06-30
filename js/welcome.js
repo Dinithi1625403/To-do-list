@@ -116,9 +116,11 @@ function onSignIn(googleUser) {
   }
   
 
+
+
   window.fbAsyncInit = function() {
     FB.init({
-      appId      : '{your-app-id}',
+      appId      : '{1142467833710729}',
       cookie     : true,
       xfbml      : true,
       version    : '{api-version}'
@@ -136,9 +138,24 @@ function onSignIn(googleUser) {
      fjs.parentNode.insertBefore(js, fjs);
    }(document, 'script', 'facebook-jssdk'));
 
-   FB.getLoginStatus(function(response) {
+
+
+   
+FB.getLoginStatus(function(response) {
     statusChangeCallback(response);
 });
+
+
+/*{
+    status: 'connected',
+    authResponse: {
+        accessToken: '...',
+        expiresIn:'...',
+        signedRequest:'...',
+        userID:'...'
+    }
+}*/
+
 
 
 function checkLoginState() {

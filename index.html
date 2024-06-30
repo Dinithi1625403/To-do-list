@@ -64,7 +64,7 @@ onlogin="checkLoginState();">
     <div class="modal" id="signUpFormModal" style="display:block; overflow-y: scroll;">
         <img src="images/form.png" style="object-fit: cover; width: 100%; height: 100%; position: fixed; z-index: -1; ">
         <div class="col-md-12" >
-            <div class="modal-dialog" style="max-width: 100%; width: 80%; margin: 10% auto;">
+            <div class="modal-dialog" style="max-width: 800px; width: 80%; margin: 10% auto;">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title">Sign Up</h5>
@@ -73,12 +73,12 @@ onlogin="checkLoginState();">
                         </button>
                     </div>
                     <div class="modal-body">
-                        <div class="container">
+                        <div class="container " ">
                             <form>
                                 <div class="row">
                                     <div class="hide-md-lg"></div>
                                     <h2 style="text-align: center;"></h2>
-                                    <div class="vl">
+                                    <div class="vl" >
                                         <span class="vl-innertext">or</span>
                                     </div>
                                     <div class="hl">
@@ -86,7 +86,7 @@ onlogin="checkLoginState();">
                                     </div>
                                     <div class="col-md-6">
                                         <p>Sign up with Social Media</p>
-                                        <a href="#" class="btn btn-primary btn-block       fb-login-button" id="fb-root" scope="public_profile,email"
+                                       <!-- <a href="#" class="btn btn-primary btn-block       fb-login-button" id="fb-root" scope="public_profile,email"
                                         onlogin="checkLoginState();" >  
                                            
                                             <i class="fa fa-facebook fa-fw "></i> Sign Up with Facebook
@@ -100,19 +100,38 @@ onlogin="checkLoginState();">
                                         <a href="#" class="  btn  g-signin2"    >
 
                                             <i class="fa fa-google fa-fw  g-signin2  "  data-onsuccess="onSignIn" ></i> Sign Up with Google+
+                                        </a>-->
+                                        <fb:login-button 
+                                        scope="public_profile,email"
+                                        onlogin="checkLoginState();">
+                                        </fb:login-button>
+                                        
+                                        
+
+
+
+
+                                        <a href="#" class="btn  btn-block  btn-violet  " style="color: white; border-radius: 200px 20px 200px  20px; width: 60%; margin-left: 20%;" >
+                                            <i class="fa fa-facebook fa-fw "></i> Sign Up with Facebook
+                                        </a>
+                                        <a href="#" class="btn btn-block  btn-violet" style="color: white;border-radius: 200px 20px 200px  20px;width: 60%; margin-left: 20%;">
+                                            <i class="fa fa-twitter fa-fw"></i> Sign Up with Twitter
+                                        </a>
+                                        <a href="#" class="btn  btn-block  btn-violet " style="color: white;border-radius: 200px 20px 200px  20px;width: 60%; margin-left: 20%;">
+                                            <i class="fa fa-google fa-fw"></i> Sign Up with Google+
                                         </a>
                                     </div>
-                                    <div class="col-md">
+                                    <div class="col-md" style="margin: 20px;">
                                         <div class="hide-md-lg">
                                             <p>Or sign up manually:</p>
                                         </div>
-                                        <input type="text" id="name" name="name" class="form-control" placeholder="Username" required>
-                                        <input type="email" id="email" name="email" class="form-control" placeholder="Email" required>
-                                        <input type="password" id="password" name="password" class="form-control" placeholder="Password" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$" title="Password must contain at least 8 characters, including at least one uppercase letter, one lowercase letter, one number, and one special character." required>
-                                        <input type="password" id="confirmPassword" name="confirmPassword" class="form-control" placeholder="Confirm Password" required oninput="checkPasswordMatch()">
+                                        <input type="text" style="margin-left: 0;" id="name" name="name" class="form-control" placeholder="Username" required>
+                                        <input type="email"  style="margin-left: 0;" id="email" name="email" class="form-control" placeholder="Email" required>
+                                        <input type="password"style="margin-left: 0;"    id="password" name="password" class="form-control" placeholder="Password" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$" title="Password must contain at least 8 characters, including at least one uppercase letter, one lowercase letter, one number, and one special character." required>
+                                        <input type="password"  style="margin-left: 0;" id="confirmPassword" name="confirmPassword" class="form-control" placeholder="Confirm Password" required oninput="checkPasswordMatch()">
                                         <p id="passwordMatchError" style="color: red; display: none;">Passwords do not match</p>
-                                        <input type="checkbox" id="terms&Condition" checked="checked" required>Agree to <a href="privacy.html" style="color:rgb(84, 7, 252)">Terms & Conditions</a>
-                                        <button type="submit" class="btn btn-success btn-block" onclick="signUp()">Sign Up</button>
+                                        <input type="checkbox"  style="box-shadow: none; accent-color: #8C52FF; margin-left: 0;" id="terms&Condition" checked="checked" required>Agree to <a href="privacy.html" style="color:rgb(84, 7, 252)">Terms & Conditions</a>
+                                        <button type="submit" style="margin-left: 0;"  class=" btn-violet btn-block" onclick="signUp()">Sign Up</button>
                                         
                                         
                                     </div>
@@ -125,7 +144,7 @@ onlogin="checkLoginState();">
                                 <div class="bottom-container">
                                     <div class="row">
                                         <div class="col">Already have an account?
-                                            <a onclick="showLoginForm()" style="color:rgb(60, 2, 249)" class="btn btn-link" >Log In</a>
+                                            <a onclick="showLoginForm()" href="#" style="color:#8C52FF"  style="cursor: pointer;" >Log In</a>
                                         </div>
                                         
                                     </div>
@@ -160,10 +179,10 @@ onlogin="checkLoginState();">
     </div>
 </div>
     <!--Login Modal-->
-<div class="modal" id="loginFormModal" style="display: none;">
+<div class="modal" id="loginFormModal" style="display: none; overflow-y: scroll;">
     <img src="images/form.png" style="object-fit: cover; width: 100%; height: 100%; position: fixed; z-index: -1; ">
     <div class="col-md-12">
-        <div class="modal-dialog" style="max-width: 80%; width: 80%; margin: 10% auto;height:fit-content">
+        <div class="modal-dialog" style="max-width: 800px; width: 80%; margin: 10% auto;height:fit-content; ">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title">Log In</h5>
@@ -172,9 +191,9 @@ onlogin="checkLoginState();">
                     </button>
                 </div>
                 <div class="modal-body">
-                    <div class="container">
+                    <div class="container ">
                         <form>
-                            <div class="row">
+                            <div class="row ">
                                 <h2 style="text-align: center;"></h2>
                                 <div class="vl">
                                     <span class="vl-innertext">or</span>
@@ -182,25 +201,25 @@ onlogin="checkLoginState();">
                                 <div class="hl" style="margin-top:20px;" >
                                     <span class="hl-innertext">or</span>
                                 </div>
-                                <div class="col-md-6">
+                                <div class="col-md-6 ">
                                     <p>Log in with Social Media</p>
-                                    <a href="#" class="btn btn-primary btn-block">
+                                    <a href="#" class="btn btn-violet btn-block"style="color: white; border-radius: 200px 20px 200px  20px;width: 60%; margin-left: 20%;">
                                         <i class="fa fa-facebook fa-fw "></i> Log In with Facebook
                                     </a>
-                                    <a href="#" class="btn btn-info btn-block">
+                                    <a href="#" class="btn btn-violet btn-block" style="color: white; border-radius: 200px 20px 200px  20px;width: 60%; margin-left: 20%;">
                                         <i class="fa fa-twitter fa-fw"></i> Log In with Twitter
                                     </a>
-                                    <a href="#" class="btn btn-danger btn-block"style=margin-bottom:50px>
+                                    <a href="#" class="btn btn-violet btn-block"style="margin-bottom:50px color: white; border-radius: 200px 20px 200px  20px;width: 60%; margin-left: 20%;">
                                         <i class="   fa fa-google fa-fw" ></i> Log In with Google+
                                     </a>
                                 </div>
-                                <div class="col-md">
+                                <div class="col-md  "  style="margin-top: 60px; margin: 20px;">
                                     <div class="hide-md-lg">
                                         <p>Or log in manually:</p>
                                     </div>
-                                    <input type="email" name="email" class="form-control" placeholder="Email" required >
-                                    <input type="password" name="password" class="form-control" placeholder="Password" required>
-                                    <button type="submit" class="btn btn-success btn-block" onclick="login()">Log In</button>
+                                    <input type="email" style="margin-left: 0;"   name="email" class="form-control" placeholder="Email" required >
+                                    <input type="password"  style="margin-left: 0;" name="password" class="form-control" placeholder="Password" required>
+                                    <button type="submit" class=" btn-violet btn-block" onclick="login()">Log In</button>
                                     
                                     
                                 </div>
@@ -208,13 +227,14 @@ onlogin="checkLoginState();">
                         </form>
                     </div>
                     <footer>
-                    <div class="bottom-container">
+                        <hr>
+                    <div class="bottom-container " style="margin: 20px; ">
                         <div class="row">
-                            <div class="col">Don't have an account
-                                <a onclick="showSignUpForm()" style="color:rgb(60, 2, 249)" class="btn btn-link" >Sign Up</a>
+                            <div class="col-md   "  style="text-align: left;">Don't have an account
+                                <a onclick="showSignUpForm()" href="#"   style="color: #8C52FF;" class=" btn-link" >Sign Up</a>
                             </div>
-                            <div class="col">
-                                <a href="#" style="color:rgb(84, 7, 252)" class="btn btn-link">Forgot password?</a>
+                            <div class="col-md   "  style="text-align: right;">
+                                <a href="#" style="color: #8C52FF; margin-right:10px;" class="btn-link">Forgot password?</a>
                             </div>
                         </div>
                     </div>
