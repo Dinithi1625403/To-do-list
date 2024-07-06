@@ -15,6 +15,7 @@ function showSuccessModal() {
     // Add your code here to handle the success modal
     document.getElementById("signUpSuccessModal").style.display = "block";
     document.getElementById("signUpFormModal").style.display = "none";
+    
 }
 
 // Function to handle the sign-up process
@@ -76,6 +77,7 @@ showSuccessModal();
 // Function to hide the sign-up success modal
 function hideSuccessModal() {
     document.getElementById("signUpSuccessModal").style.display = "none";
+    window.open("home.html");
 }
 
 // Function to show the login form

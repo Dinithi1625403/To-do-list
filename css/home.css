@@ -199,7 +199,7 @@ li{
         }
     }
     .card{
-        animation: slideInLeft 1s ease-in-out;
+        animation: slideInLeft 2s ease-in-out;
     }
     
     @keyframes fadeIn {
@@ -213,6 +213,51 @@ li{
         }
     }
     .tagline{
-        animation: forwards 1s ease-in-out;
+        animation: forwards 2s ease-in-out;
     }   
 
+body{
+    animation: none;
+}
+#nav{
+    background-image: linear-gradient(to bottom,#ffffff, #ffffff);
+    box-shadow: rgba(14, 63, 126, 0.06) 0px 0px 0px 1px, rgba(42, 51, 70, 0.03) 0px 1px 1px -0.5px, rgba(42, 51, 70, 0.04) 0px 2px 2px -1px, rgba(42, 51, 70, 0.04) 0px 3px 3px -1.5px, rgba(42, 51, 70, 0.03) 0px 5px 5px -2.5px, rgba(42, 51, 70, 0.03) 0px 10px 10px -5px, rgba(42, 51, 70, 0.03) 0px 24px 24px -8px;
+    top: 0;
+    position: sticky;
+    position: -webkit-sticky;
+    
+}
+div.sticky {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    
+    
+    font-size: 20px;
+    z-index: 2;
+  }
+
+  .plus{
+    position: -webkit-sticky;
+    position: sticky;
+    z-index: 2;
+    box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+    border: 0px solid #e9ecef;
+    
+   
+    border-radius: 50%;
+    position: fixed; bottom: 5%; right:5%; 
+    width: 80px;
+    height: 80px;
+    font-size: 40px;
+    
+    
+
+}
+.plus:hover{
+   
+    
+    height: 100px;
+    width: 100px;
+    
+}

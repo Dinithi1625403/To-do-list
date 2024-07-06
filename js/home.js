@@ -77,7 +77,9 @@ function addTask() {
 
         removeButton.onclick = function () {
                 taskList.removeChild(newTask);
-                document.getElementById('tasksContainer').style.display = 'none';
+                if (taskList.childElementCount === 0) {
+                        document.getElementById('tasksContainer').style.display = 'none';
+                }
         };
 
         // Create an edit button element
@@ -98,8 +100,8 @@ function addTask() {
                         // Update the task details
                         taskDetailsDiv.innerHTML = `
                                 <h3>${updatedTaskName}</h3>
-                                <p>${updatedTaskDescription}</p>
-                                <p>${updatedRemainDate}</p>
+                                <h6>${updatedTaskDescription}</h6>
+                                <h6>${updatedRemainDate}</h6>
                         `;
 
                         // Hide the edit form modal
@@ -119,8 +121,8 @@ function addTask() {
         taskDetailsDiv.className = 'task-details';
         taskDetailsDiv.innerHTML = `
                 <h3>${taskName}</h3>
-                <p style="font-family: Coming Soon;>${taskDescription}</p>
-                <p style="font-family: Coming Soon;>${remainDate}</p>
+                <h6>${taskDescription}</h6>
+                <h6 >${remainDate}</h6>
         `;
 
         const btnDiv = document.createElement('div');

@@ -84,8 +84,8 @@ function prioratise(){
                     // Update the task details
                     taskDetailsDiv.innerHTML = `
                             <h3>${updatedTaskName}</h3>
-                            <p>${updatedTaskDescription}</p>
-                            <p>${updatedRemainDate}</p>
+                            <h6>${updatedTaskDescription}</h6>
+                            <h6>${updatedRemainDate}</h6>
                     `;
 
                     // Hide the edit form modal
@@ -105,8 +105,8 @@ function prioratise(){
     taskDetailsDiv.className = 'task-details';
     taskDetailsDiv.innerHTML = `
             <h3>${taskName}</h3>
-            <p style="font-family: Coming Soon;>${taskDescription}</p>
-            <p style="font-family: Coming Soon;>${remainDate}</p>
+            <h6 >${taskDescription}</h6>
+            <h6 >${remainDate}</h6>
     `;
 
     const btnDiv = document.createElement('div');
