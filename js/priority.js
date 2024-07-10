@@ -1,15 +1,29 @@
-function showTaskFormPr(){
-   
-    document.getElementById("taskFormModalPr").style.display = "block";
-    
+document.getElementById('year').innerHTML = new Date().getFullYear();
+document.getElementById('month').innerHTML = new Date().toLocaleString('default', { month: 'long' });
+document.getElementById('day').innerHTML = new Date().getDate();
 
-}
-function hideTaskFormPr(){
-    document.getElementById("taskFormModalPr").style.display = "none";
-    
+function showTaskForm() {
+    document.getElementById("taskFormModal").style.display = "block";
 }
 
-function prioratise(){
+function hideTaskForm() {
+    document.getElementById("taskFormModal").style.display = "none";
+    document.getElementById("overlay").style.display = "none";
+}
+
+function hideEditForm() {
+    document.getElementById("editForm").style.display = "none";
+    document.getElementById("overlay").style.display = "none";
+}
+
+// Get the reference to the task list element
+const taskList = document.getElementById('taskList');
+taskList.style.boxShadow = 'rgb(200, 208, 231) 3.2px 3.2px 8px 0px inset, rgb(255, 255, 255) -3.2px -3.2px 8px 0px inset;';
+
+// Remove the duplicate declaration of remainDate
+const remainDate = document.getElementById('remain-date').value;
+
+function prioratise() {
     // Get the task name, description, and remain date from the input fields
     const taskName = document.getElementById('task-name').value;
     const taskDescription = document.getElementById('task-description').value;
@@ -24,7 +38,7 @@ function prioratise(){
 
     // Create a checkbox element
     const checkbox = document.createElement('input');
-    checkbox.type = 'checkbox';  
+    checkbox.type = 'checkbox';
     checkbox.style.position = 'absolute';
     checkbox.style.top = '50%';
     checkbox.style.transform = 'translateY(-50%)';
@@ -35,11 +49,11 @@ function prioratise(){
     checkbox.style.height = '20px';
 
     checkbox.onclick = function () {
-            if (checkbox.checked) {
-                    newTask.style.textDecoration = 'line-through';
-            } else {
-                    newTask.style.textDecoration = 'none';
-            }
+        if (checkbox.checked) {
+            newTask.style.textDecoration = 'line-through';
+        } else {
+            newTask.style.textDecoration = 'none';
+        }
     };
 
     // Create a div element for checkbox and remove button
@@ -62,8 +76,10 @@ function prioratise(){
     removeButton.style.backgroundColor = 'white';
 
     removeButton.onclick = function () {
-            taskList.removeChild(newTask);
+        taskList.removeChild(newTask);
+        if (taskList.childElementCount === 0) {
             document.getElementById('tasksContainer').style.display = 'none';
+        }
     };
 
     // Create an edit button element
@@ -73,47 +89,47 @@ function prioratise(){
     editButton.style.backgroundColor = 'white';
 
     editButton.onclick = function () {
-            document.getElementById('editForm').style.display = "block";
+        document.getElementById('editForm').style.display = "block";
 
-            document.getElementById('edit').onclick = function () {
-                    // Get the updated task name, description, and remain date from the input fields
-                    const updatedTaskName = document.getElementById('edit-task-name').value;
-                    const updatedTaskDescription = document.getElementById('edit-task-description').value;
-                    const updatedRemainDate = document.getElementById('edit-remain-date').value;
+        document.getElementById('edit').onclick = function () {
+            // Get the updated task name, description, and remain date from the input fields
+            const updatedTaskName = document.getElementById('edit-task-name').value;
+            const updatedTaskDescription = document.getElementById('edit-task-description').value;
+            const updatedRemainDate = document.getElementById('edit-remain-date').value;
 
-                    // Update the task details
-                    taskDetailsDiv.innerHTML = `
-                            <h3>${updatedTaskName}</h3>
-                            <h6>${updatedTaskDescription}</h6>
-                            <h6>${updatedRemainDate}</h6>
-                    `;
+            // Update the task details
+            taskDetailsDiv.innerHTML = `
+                <h3>${updatedTaskName}</h3>
+                <h6>${updatedTaskDescription}</h6>
+                <h6>${updatedRemainDate}</h6>
+            `;
 
-                    // Hide the edit form modal
-                    hideEditForm();
-            }
+            // Hide the edit form modal
+            hideEditForm();
+        }
     };
 
     // Create a div element for task details
     const taskDetailsDiv = document.createElement('div');
     taskDetailsDiv.style.fontFamily = 'Coming Soon';
     if (window.innerWidth < 768) {
-            taskDetailsDiv.style.fontSize = '0.5rem';
+        taskDetailsDiv.style.fontSize = '0.5rem';
     } else {
-            taskDetailsDiv.style.fontSize = '1.5rem';
-            checkbox.style.width = '40px';
+        taskDetailsDiv.style.fontSize = '1.5rem';
+        checkbox.style.width = '40px';
     }
     taskDetailsDiv.className = 'task-details';
     taskDetailsDiv.innerHTML = `
-            <h3>${taskName}</h3>
-            <h6 >${taskDescription}</h6>
-            <h6 >${remainDate}</h6>
+        <h3>${taskName}</h3>
+        <h6>${taskDescription}</h6>
+        <h6>${remainDate}</h6>
     `;
 
     const btnDiv = document.createElement('div');
     btnDiv.appendChild(removeButton);
     btnDiv.appendChild(editButton);
     btnDiv.style.float = 'right';
-    
+
     taskDetailsDiv.style.width = '60%';
     checkboxDiv.style.width = '5%';
 
@@ -121,8 +137,7 @@ function prioratise(){
     newTask.appendChild(checkboxDiv);
     newTask.appendChild(taskDetailsDiv);
     newTask.appendChild(btnDiv);
-    taskList.appendChild(newTask);
-
+    
 
     const impUrg = document.getElementById('impUrgUl');
     const notImpUrg = document.getElementById('notImpUrgUl');
@@ -137,12 +152,12 @@ function prioratise(){
                 taskList.removeChild(newTask);
             }
         }
-    } 
+    }
     if (radioValue === 'notImpUrg') {
         notImpUrg.appendChild(newTask);
         removeButton.onclick = function () {
             notImpUrg.removeChild(newTask);
-            removeButton.onclick=function(){
+            removeButton.onclick = function () {
                 taskList.removeChild(newTask);
             }
         }
@@ -152,17 +167,26 @@ function prioratise(){
         removeButton.onclick = function () {
             impNotUrg.removeChild(newTask);
         }
-    } 
+    }
     if (radioValue === 'notImpNotUrg') {
         notImpNotUrg.appendChild(newTask);
         removeButton.onclick = function () {
             notImpNotUrg.removeChild(newTask);
-        } 
+        }
     }
-    hideTaskFormPr();
+
+    
+
     // Clear the input fields
     document.getElementById('task-name').value = '';
+    document.getElementById('task-description').value = '';
+    document.getElementById('remain-date').value = '';
+
+    // Hide the task form modal
+    hideTaskForm();
 }
-function hideEditForm() {
-    document.getElementById('editForm').style.display = "none";
+
+// Display newTask in todayTasks div if remainDate=Today automatically
+if (new Date(remainDate).toDateString() === new Date().toDateString()) {
+    // Code to display newTask in todayTasks div
 }
