@@ -10,17 +10,11 @@ function hideSignUpForm() {
     document.getElementById("signUpFormModal").style.display = "none";
 }
 
-// Function to show the sign-up success modal
-function showSuccessModal() {
-    // Add your code here to handle the success modal
-    document.getElementById("signUpSuccessModal").style.display = "block";
-    document.getElementById("signUpFormModal").style.display = "none";
-    
-}
+
 
 // Function to handle the sign-up process
 function signUp() {
-    const name = document.getElementById("name").value;
+   const name = document.getElementById("name").value;
     const email = document.getElementById("email").value;
     const password = document.getElementById("password").value;
     const confirmPassword = document.getElementById("confirmPassword").value;
@@ -31,7 +25,7 @@ function signUp() {
         showSignUpForm();
         return;
     }
-    
+   // Dini1625403@
     if (password !== confirmPassword) {
         alert("Passwords do not match!");
         showSignUpForm();
@@ -68,17 +62,17 @@ function signUp() {
         showSignUpForm();
         return;
     }
+    alert("Sign up Successfully")
+    
+    window.open("home.html");
 
     // If there is no error, then show the success modal
-showSuccessModal();
+   
 }
     
 
 // Function to hide the sign-up success modal
-function hideSuccessModal() {
-    document.getElementById("signUpSuccessModal").style.display = "none";
-    window.open("home.html");
-}
+
 
 // Function to show the login form
 function showLoginForm() {
@@ -107,7 +101,7 @@ function login() {
 }
 
 
-
+/*
 function onSignIn(googleUser) {
     var profile = googleUser.getBasicProfile();
     console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
@@ -158,7 +152,7 @@ FB.getLoginStatus(function(response) {
     }
 }*/
 
-
+/*
 
 function checkLoginState() {
     FB.getLoginStatus(function(response) {
@@ -166,7 +160,7 @@ function checkLoginState() {
     });
     window.open("home.html");
   }
-
+*/
 
 
 
