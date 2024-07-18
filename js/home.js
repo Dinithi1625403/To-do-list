@@ -2,8 +2,6 @@ document.getElementById('year').innerHTML = new Date().getFullYear();
 document.getElementById('month').innerHTML = new Date().toLocaleString('default', { month: 'long' });
 document.getElementById('day').innerHTML = new Date().getDate();
 
-
-
 function showTaskForm() {
         document.getElementById("taskFormModal").style.display = "block";
 }
@@ -12,6 +10,7 @@ function hideTaskForm() {
         document.getElementById("taskFormModal").style.display = "none";
         document.getElementById("overlay").style.display = "none";
 }
+
 function hideEditForm() {
         document.getElementById("editForm").style.display = "none";
         document.getElementById("overlay").style.display = "none";
@@ -19,15 +18,14 @@ function hideEditForm() {
 
 // Get the reference to the task list element
 const taskList = document.getElementById('taskList');
-taskList.style.boxShadow='box-shadow: rgb(200, 208, 231) 3.2px 3.2px 8px 0px inset, rgb(255, 255, 255) -3.2px -3.2px 8px 0px inset;'
+taskList.style.boxShadow = 'box-shadow: rgb(200, 208, 231) 3.2px 3.2px 8px 0px inset, rgb(255, 255, 255) -3.2px -3.2px 8px 0px inset;'
 
-const remainDate = document.getElementById('remain-date').value;
 // Remove the duplicate declaration of newTask
 function addTask() {
-        // Get the task name, description, and remain date from the input fields
+        // Get the task name, description, and due date from the input fields
         const taskName = document.getElementById('task-name').value;
         const taskDescription = document.getElementById('task-description').value;
-        const remainDate = document.getElementById('remain-date').value;
+        const dueDate = document.getElementById('due-date').value;
 
         // Create a new list item element
         const newTask = document.createElement('li');
@@ -38,7 +36,7 @@ function addTask() {
 
         // Create a checkbox element
         const checkbox = document.createElement('input');
-        checkbox.type = 'checkbox';  
+        checkbox.type = 'checkbox';
         checkbox.style.position = 'absolute';
         checkbox.style.top = '50%';
         checkbox.style.transform = 'translateY(-50%)';
@@ -92,16 +90,16 @@ function addTask() {
                 document.getElementById('editForm').style.display = "block";
 
                 document.getElementById('edit').onclick = function () {
-                        // Get the updated task name, description, and remain date from the input fields
+                        // Get the updated task name, description, and due date from the input fields
                         const updatedTaskName = document.getElementById('edit-task-name').value;
                         const updatedTaskDescription = document.getElementById('edit-task-description').value;
-                        const updatedRemainDate = document.getElementById('edit-remain-date').value;
+                        const updatedDueDate = document.getElementById('edit-due-date').value;
 
                         // Update the task details
                         taskDetailsDiv.innerHTML = `
                                 <h3>${updatedTaskName}</h3>
                                 <h6>${updatedTaskDescription}</h6>
-                                <h6>${updatedRemainDate}</h6>
+                                <h6>${updatedDueDate}</h6>
                         `;
 
                         // Hide the edit form modal
@@ -122,17 +120,17 @@ function addTask() {
         taskDetailsDiv.innerHTML = `
                 <h3>${taskName}</h3>
                 <h6>${taskDescription}</h6>
-                <h6 >${remainDate}</h6>
+                <h6>${dueDate}</h6>
         `;
 
         const btnDiv = document.createElement('div');
         btnDiv.appendChild(removeButton);
         btnDiv.appendChild(editButton);
         btnDiv.style.float = 'right';
-        
+
         taskDetailsDiv.style.width = '60%';
         checkboxDiv.style.width = '5%';
-    
+
         newTask.className = 'list-group-item d-flex justify-content-between align-items-center';
         newTask.appendChild(checkboxDiv);
         newTask.appendChild(taskDetailsDiv);
@@ -144,15 +142,13 @@ function addTask() {
         // Clear the input fields
         document.getElementById('task-name').value = '';
         document.getElementById('task-description').value = '';
-        document.getElementById('remain-date').value = '';
+        document.getElementById('due-date').value = '';
 
         // Hide the task form modal
         hideTaskForm();
 }
 
-// display newTask in todayTasks div if remainDate=Today automatically
-if (new Date(remainDate).toDateString() === new Date().toDateString()) {
-       
-
+// display newTask in todayTasks div if dueDate is today
+if (new Date(dueDate).toDateString() === new Date().toDateString()) {
+        // Code to display newTask in todayTasks div
 }
-

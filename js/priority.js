@@ -20,14 +20,14 @@ function hideEditForm() {
 const taskList = document.getElementById('taskList');
 taskList.style.boxShadow = 'rgb(200, 208, 231) 3.2px 3.2px 8px 0px inset, rgb(255, 255, 255) -3.2px -3.2px 8px 0px inset;';
 
-// Remove the duplicate declaration of remainDate
-const remainDate = document.getElementById('remain-date').value;
+// Remove the duplicate declaration of dueDate
+const dueDate = document.getElementById('due-date').value;
 
 function prioratise() {
-    // Get the task name, description, and remain date from the input fields
+    // Get the task name, description, and due date from the input fields
     const taskName = document.getElementById('task-name').value;
     const taskDescription = document.getElementById('task-description').value;
-    const remainDate = document.getElementById('remain-date').value;
+    const dueDate = document.getElementById('due-date').value;
 
     // Create a new list item element
     const newTask = document.createElement('li');
@@ -92,53 +92,19 @@ function prioratise() {
         document.getElementById('editForm').style.display = "block";
 
         document.getElementById('edit').onclick = function () {
-            // Get the updated task name, description, and remain date from the input fields
+            // Get the updated task name, description, and due date from the input fields
             const updatedTaskName = document.getElementById('edit-task-name').value;
             const updatedTaskDescription = document.getElementById('edit-task-description').value;
-            const updatedRemainDate = document.getElementById('edit-remain-date').value;
+            const updatedDueDate = document.getElementById('edit-due-date').value;
 
             // Update the task details
             taskDetailsDiv.innerHTML = `
                 <h3>${updatedTaskName}</h3>
                 <h6>${updatedTaskDescription}</h6>
-                <h6>${updatedRemainDate}</h6>
+                <h6>${updatedDueDate}</h6>
             `;
-            const impUrg = document.getElementById('impUrgUl');
-    const notImpUrg = document.getElementById('notImpUrgUl');
-    const impNotUrg = document.getElementById('impNotUrgUl');
-    const notImpNotUrg = document.getElementById('notImpNotUrgUl');
-    const radioValue = document.querySelector('input[name="category"]:checked').value;
-    if (radioValue === 'impUrg') {
-        impUrg.appendChild(newTask);
-        removeButton.onclick = function () {
-            impUrg.removeChild(newTask);
-            removeButton.onclick = function () {
-                taskList.removeChild(newTask);
-            }
-        }
-    }
-    if (radioValue === 'notImpUrg') {
-        notImpUrg.appendChild(newTask);
-        removeButton.onclick = function () {
-            notImpUrg.removeChild(newTask);
-            removeButton.onclick = function () {
-                taskList.removeChild(newTask);
-            }
-        }
-    }
-    if (radioValue === 'impNotUrg') {
-        impNotUrg.appendChild(newTask);
-        removeButton.onclick = function () {
-            impNotUrg.removeChild(newTask);
-        }
-    }
-    if (radioValue === 'notImpNotUrg') {
-        notImpNotUrg.appendChild(newTask);
-        removeButton.onclick = function () {
-            notImpNotUrg.removeChild(newTask);
-        }
-    }
 
+            // Code to prioritize the task based on the updated due date
 
             // Hide the edit form modal
             hideEditForm();
@@ -158,7 +124,7 @@ function prioratise() {
     taskDetailsDiv.innerHTML = `
         <h3>${taskName}</h3>
         <h6>${taskDescription}</h6>
-        <h6>${remainDate}</h6>
+        <h6>${dueDate}</h6>
     `;
 
     const btnDiv = document.createElement('div');
@@ -173,7 +139,6 @@ function prioratise() {
     newTask.appendChild(checkboxDiv);
     newTask.appendChild(taskDetailsDiv);
     newTask.appendChild(btnDiv);
-    
 
     const impUrg = document.getElementById('impUrgUl');
     const notImpUrg = document.getElementById('notImpUrgUl');
@@ -211,18 +176,16 @@ function prioratise() {
         }
     }
 
-    
-
     // Clear the input fields
     document.getElementById('task-name').value = '';
     document.getElementById('task-description').value = '';
-    document.getElementById('remain-date').value = '';
+    document.getElementById('due-date').value = '';
 
     // Hide the task form modal
     hideTaskForm();
 }
 
-// Display newTask in todayTasks div if remainDate=Today automatically
-if (new Date(remainDate).toDateString() === new Date().toDateString()) {
+// Display newTask in todayTasks div if dueDate is today
+if (new Date(dueDate).toDateString() === new Date().toDateString()) {
     // Code to display newTask in todayTasks div
 }

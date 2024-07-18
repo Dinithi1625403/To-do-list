@@ -23,11 +23,9 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto justify-content-end">
+                
                 <li class="nav-item">
-                    <button class="btn-violet" id="defaultOpen" onclick="window.open('home.html')">Home</button>
-                </li>
-                <li class="nav-item">
-                    <button class="btn-violet" onclick="window.open('Priority.html')">Priority</button>
+                    <button class="btn-violet" onclick="window.open('priority.html')">Priority</button>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="index.html">Log Out</a>
@@ -71,6 +69,7 @@
   
 
 
+
   </div>
 
    
@@ -83,8 +82,7 @@
 
     <!-- Task Form Modal -->
     <div class="modal" id="taskFormModal" style="display: none;">
-        <div class="modal-dialog">
-            <div class="modal-content" style="background-color: white;border: 5px solid white;color: rgb(0, 0, 0) ;box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;border: 6px solid white; ">
+        <div class="modal-dialog"></div>
                 <div class="modal-header">
                     <h5 class="modal-title">Add Task</h5>
                     <button type="button" class="close" onclick="hideTaskForm()" data-dismiss="modal" aria-label="Close">
@@ -103,8 +101,8 @@
                             <textarea class="form-control" id="task-description" rows="3" placeholder="Enter task description"   style="background-color: white; box-shadow:  rgb(200, 208, 231) 3.2px 3.2px 8px 0px inset, rgb(255, 255, 255) -3.2px -3.2px 8px 0px inset;"></textarea>
                         </div>
                         <div class="form-group">
-                            <label for="remain-date">Remain Date</label>
-                            <input type="date" class="form-control" id="remain-date"   style="background-color: white;box-shadow: rgb(200, 208, 231) 3.2px 3.2px 8px 0px inset, rgb(255, 255, 255) -3.2px -3.2px 8px 0px inset;">
+                            <label for="due-date">Due Date</label>
+                            <input type="date" class="form-control" id="due-date"   style="background-color: white;box-shadow: rgb(200, 208, 231) 3.2px 3.2px 8px 0px inset, rgb(255, 255, 255) -3.2px -3.2px 8px 0px inset;">
                         </div>
                     </form>
                 </div>
@@ -137,8 +135,8 @@
                             <textarea class="form-control" id="edit-task-description" rows="3" placeholder="Enter task description" style="background-color: white; box-shadow:  rgb(200, 208, 231) 3.2px 3.2px 8px 0px inset, rgb(255, 255, 255) -3.2px -3.2px 8px 0px inset;"> </textarea>
                         </div>
                         <div class="form-group">
-                            <label for="remain-date">Remain Date</label>
-                            <input type="date" class="form-control" id="edit-remain-date" style="background-color: white; box-shadow:  rgb(200, 208, 231) 3.2px 3.2px 8px 0px inset, rgb(255, 255, 255) -3.2px -3.2px 8px 0px inset;">
+                            <label for="due-date">Due Date</label>
+                            <input type="date" class="form-control" id="edit-due-date" style="background-color: white; box-shadow:  rgb(200, 208, 231) 3.2px 3.2px 8px 0px inset, rgb(255, 255, 255) -3.2px -3.2px 8px 0px inset;">
                         </div>
                     </form>
                 </div>
