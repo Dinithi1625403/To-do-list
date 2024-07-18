@@ -49,8 +49,10 @@ function addTask() {
         checkbox.onclick = function () {
                 if (checkbox.checked) {
                         newTask.style.textDecoration = 'line-through';
+                        newTask.style.opacity = '0.6';
                 } else {
                         newTask.style.textDecoration = 'none';
+                        newTask.style.opacity = '1';
                 }
         };
 
