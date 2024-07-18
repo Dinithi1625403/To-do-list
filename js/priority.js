@@ -103,6 +103,42 @@ function prioratise() {
                 <h6>${updatedTaskDescription}</h6>
                 <h6>${updatedRemainDate}</h6>
             `;
+            const impUrg = document.getElementById('impUrgUl');
+    const notImpUrg = document.getElementById('notImpUrgUl');
+    const impNotUrg = document.getElementById('impNotUrgUl');
+    const notImpNotUrg = document.getElementById('notImpNotUrgUl');
+    const radioValue = document.querySelector('input[name="category"]:checked').value;
+    if (radioValue === 'impUrg') {
+        impUrg.appendChild(newTask);
+        removeButton.onclick = function () {
+            impUrg.removeChild(newTask);
+            removeButton.onclick = function () {
+                taskList.removeChild(newTask);
+            }
+        }
+    }
+    if (radioValue === 'notImpUrg') {
+        notImpUrg.appendChild(newTask);
+        removeButton.onclick = function () {
+            notImpUrg.removeChild(newTask);
+            removeButton.onclick = function () {
+                taskList.removeChild(newTask);
+            }
+        }
+    }
+    if (radioValue === 'impNotUrg') {
+        impNotUrg.appendChild(newTask);
+        removeButton.onclick = function () {
+            impNotUrg.removeChild(newTask);
+        }
+    }
+    if (radioValue === 'notImpNotUrg') {
+        notImpNotUrg.appendChild(newTask);
+        removeButton.onclick = function () {
+            notImpNotUrg.removeChild(newTask);
+        }
+    }
+
 
             // Hide the edit form modal
             hideEditForm();

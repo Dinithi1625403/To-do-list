@@ -85,7 +85,7 @@
                 </div>
             </div>
         </div>
-        <div class="modal" id="editForm" style="display: none;">
+        <div class="modal" id="editForm" style="display: none; background-color: rgb(0,0,0,0.4);">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -98,16 +98,24 @@
                         <form>
                             <div class="form-group">
                                 <label for="task-name">Task Name</label>
-                                <input type="text" class="form-control" id="edit-task-name" placeholder="Enter task name">
+                                <input type="text" class="form-control" id="edit-task-name" placeholder="Enter task name"style="background-color: white; box-shadow: rgb(200, 208, 231) 3.2px 3.2px 8px 0px inset,rgb(255, 255, 255) -3.2px -3.2px 8px 0px inset; ">
                             </div>
                             <div class="form-group">
                                 <label for="task-description">Task Description</label>
-                                <textarea class="form-control" id="edit-task-description" rows="3" placeholder="Enter task description"></textarea>
+                                <textarea class="form-control" id="edit-task-description" rows="3" placeholder="Enter task description"style="background-color: white; box-shadow: rgb(200, 208, 231) 3.2px 3.2px 8px 0px inset,rgb(255, 255, 255) -3.2px -3.2px 8px 0px inset; "></textarea>
                             </div>
                             <div class="form-group">
                                 <label for="remain-date">Remain Date</label>
-                                <input type="date" class="form-control" id="edit-remain-date">
+                                <input type="date" class="form-control" id="edit-remain-date" style="background-color: white; box-shadow: rgb(200, 208, 231) 3.2px 3.2px 8px 0px inset,rgb(255, 255, 255) -3.2px -3.2px 8px 0px inset; ">
                             </div>
+                            <input type="radio" id="impUrg" name="category" value="impUrg"   >
+                            <label      style="color: deeppink; "     for="impUrg">Important &amp; Urgent</label><br>
+                            <input type="radio" id="notImpUrg" name="category" value="notImpUrg">
+                            <label style="color: orange;"      for="notImpUrg">Not Important &amp; Urgent</label><br>
+                            <input type="radio" id="impNotUrg" name="category" value="impNotUrg">
+                            <label style="color: darkturquoise;"    for="impNotUrg">Important &amp; Not Urgent</label><br>
+                            <input type="radio" id="notImpNotUrg" name="category" value="notImpNotUrg">
+                            <label style="color: dodgerblue;"    for="notImpNotUrg">Not Important &amp; Not Urgent</label><br>
                         </form>
                     </div>
                     <div class="modal-footer">

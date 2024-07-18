@@ -64,7 +64,7 @@ onlogin="checkLoginState();">
     <div class="modal" id="signUpFormModal" style="display:none; overflow-y: scroll;">
         <img src="images/form.png" style="object-fit: cover; width: 100%; height: 100%; position: fixed; z-index: -1; ">
         <div class="col-md-12" >
-            <div class="modal-dialog" style="max-width: 800px; width: 80%; margin: 10% auto;">
+            <div class="modal-dialog" style="max-width: 800px; margin:10% auto;width: 90%;">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title">Sign Up</h5>
@@ -75,17 +75,21 @@ onlogin="checkLoginState();">
                     <div class="modal-body">
                         <div class="container " ">
                             <form>
-                                <div class="row">
-                                    <div class="hide-md-lg"></div>
+                              <div class="row">
+                                  <!-- <div class="hide-md-lg"></div>
                                     <h2 style="text-align: center;"></h2>
+                                    
                                     <div class="vl" >
                                         <span class="vl-innertext">or</span>
                                     </div>
                                     <div class="hl">
                                         <span class="hl-innertext">or</span>
-                                    </div>
+                                    </div>-->
                                     <div class="col-md-6">
-                                        <p>Sign up with Social Media</p>
+                                        <div>
+                                            <img src="https://img.freepik.com/premium-vector/business-time-management-deadline-concept-planner-calender-clock-business-target-flat-vector-illustration-banner_128772-1999.jpg?size=626&ext=jpg&ga=GA1.1.1448711260.1707177600&semt=ais" style="width: 100%;height:100%;"  >
+                                        </div>
+                                     <!--   <p>Sign up with Social Media</p> -->
                                        <!--
                                         <a href="#" class="  btn  g-signin2"    >
 
@@ -106,7 +110,7 @@ onlogin="checkLoginState();">
 
 
 
-
+                                        <!--
                                         <a href="#" class="btn  btn-block  btn-violet  " style="color: white; border-radius: 200px 20px 200px  20px; width: 60%; margin-left: 20%;" >
                                             <i class="fa fa-facebook fa-fw "></i> Sign Up with Facebook
                                         </a>
@@ -115,12 +119,12 @@ onlogin="checkLoginState();">
                                         </a>
                                         <a href="#" class="btn  btn-block  btn-violet " style="color: white;border-radius: 200px 20px 200px  20px;width: 60%; margin-left: 20%;">
                                             <i class="fa fa-google fa-fw"></i> Sign Up with Google+
-                                        </a>
+                                        </a>-->
                                     </div>
                                     <div class="col-md" style="margin: 20px;">
-                                        <div class="hide-md-lg">
+                                      <!-- <div class="hide-md-lg">
                                             <p>Or sign up manually:</p>
-                                        </div>
+                                        </div>-->
                                         <input type="text" style="margin-left: 0;" id="name" name="name" class="form-control" placeholder="Username" required>
                                         <input type="email"  style="margin-left: 0;" id="email" name="email" class="form-control" placeholder="Email" required>
                                         <input type="password"style="margin-left: 0;"    id="password" name="password" class="form-control" placeholder="Password" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$" title="Password must contain at least 8 characters, including at least one uppercase letter, one lowercase letter, one number, and one special character." required>
@@ -140,7 +144,7 @@ onlogin="checkLoginState();">
                                 <div class="bottom-container">
                                     <div class="row">
                                         <div class="col">Already have an account?
-                                            <a onclick="showLoginForm()" href="#" style="color:#8C52FF"  style="cursor: pointer;" >Log In</a>
+                                            <a onclick="showLoginForm()" href="#" style="color:#8C52FF"  style="cursor: pointer; text-align: left;margin: 10px;" >Log In</a>
                                         </div>
                                         
                                     </div>
@@ -175,10 +179,10 @@ onlogin="checkLoginState();">
     </div>
 </div>
     <!--Login Modal-->
-<div class="modal" id="loginFormModal" style="display: none; overflow-y: scroll;">
+<div class="modal" id="loginFormModal" style="display:none; overflow-y: scroll;">
     <img src="images/form.png" style="object-fit: cover; width: 100%; height: 100%; position: fixed; z-index: -1; ">
     <div class="col-md-12">
-        <div class="modal-dialog" style="max-width: 800px; width: 80%; margin: 10% auto;height:fit-content; ">
+        <div class="modal-dialog" style="max-width: 800px; width: 90%; margin: 10% auto;height:fit-content; ">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title">Log In</h5>
@@ -190,15 +194,18 @@ onlogin="checkLoginState();">
                     <div class="container ">
                         <form>
                             <div class="row ">
-                                <h2 style="text-align: center;"></h2>
+                              <!-- <h2 style="text-align: center;"></h2>
                                 <div class="vl">
                                     <span class="vl-innertext">or</span>
                                 </div>
                                 <div class="hl" style="margin-top:20px;" >
                                     <span class="hl-innertext">or</span>
-                                </div>
-                                <div class="col-md-6 ">
-                                    <p>Log in with Social Media</p>
+                                </div>-->
+                                <div class="col-md-6 "style="margin-bottom 0px;">
+                                    <div >
+                                        <img src="https://img.freepik.com/free-vector/flat-hand-drawn-time-management-concept-with-couple_23-2148823073.jpg?size=338&ext=jpg&ga=GA1.1.1141335507.1719273600&semt=ais_user" style="width: 100%;height: 100%;">
+                                    </div>
+                                  <!--  <p>Log in with Social Media</p>
                                     <a href="#" class="btn btn-violet btn-block"style="color: white; border-radius: 200px 20px 200px  20px;width: 60%; margin-left: 20%;">
                                         <i class="fa fa-facebook fa-fw "></i> Log In with Facebook
                                     </a>
@@ -207,12 +214,12 @@ onlogin="checkLoginState();">
                                     </a>
                                     <a href="#" class="btn btn-violet btn-block"style="margin-bottom:50px color: white; border-radius: 200px 20px 200px  20px;width: 60%; margin-left: 20%;">
                                         <i class="   fa fa-google fa-fw" ></i> Log In with Google+
-                                    </a>
+                                    </a>-->
                                 </div>
-                                <div class="col-md  "  style="margin-top: 60px; margin: 20px;">
-                                    <div class="hide-md-lg">
+                                <div class="col-md "  style=" margin: 20px;top: 50%;">
+                                  <!-- <div class="hide-md-lg">
                                         <p>Or log in manually:</p>
-                                    </div>
+                                    </div>-->
                                     <input type="email" style="margin-left: 0;"   name="email" class="form-control" placeholder="Email" required >
                                     <input type="password"  style="margin-left: 0;" name="password" class="form-control" placeholder="Password" required>
                                     <button type="submit" class=" btn-violet btn-block" onclick="login()">Log In</button>
