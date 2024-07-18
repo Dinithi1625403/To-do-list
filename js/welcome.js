@@ -88,16 +88,17 @@ function hideLoginForm() {
 
 // Function to handle the login process
 function login() {
-    var password = document.getElementById("password").value;
-    var email = document.getElementById("email").value;
+    const password = document.getElementById("Lpassword").value;
+    const email = document.getElementById("Lemail").value;
 
     if (password === "" || email === "") {
         alert("Please fill in all fields!");
+        showLoginForm();
         return;
     }
 
     alert("Login successful!");
-    window.location.href = "home.html";
+    window.open("home.html")
 }
 
 
