@@ -27,6 +27,9 @@ Welcome to the To-Do List Application! This project is designed to help you keep
 ### Task List
 ![Task List](images/taskList.png)
 
+### Prioratise
+![Task List](images/prioratise.png)
+
 ## ✨ Acknowledgements
 
 - Thanks to the open-source community for their invaluable resources.
